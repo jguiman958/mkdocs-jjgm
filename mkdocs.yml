@@ -1,0 +1,9 @@
+site_name: IAW JJGM
+
+nav:
+    - Principal: index.md
+    - Acerca de: about.md
+
+theme:
+  palette:
+    primary: indigo
