@@ -1,7 +1,17 @@
-site_name: IAW-JJGM
+site_name: Sitio web de jguiman958.
 
 nav:
-    - Principal: index.md
-    - Acerca de: about.md
+    - Principal: menúprincipal.md
     - Terraform: instalacionterraform.md
-theme: material
+    - Prestashop con bitnami: bitnamiprestashop.md
+    - Acerca de: about.md
+theme: 
+    name: material
+    logo: assets/logoIAW.jpg
+    color: blue grey
+    font:
+      text: Anta
+    features:
+     - header.autohide
+    features:
+     - navigation.footer
