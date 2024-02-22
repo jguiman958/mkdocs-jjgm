@@ -1,0 +1,852 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../instalacionterraform/">
+      
+      
+        <link rel="next" href="../about/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>Prestashop con bitnami - Sitio web de jguiman958.</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anta:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Anta";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#instalacion-de-prestashop-a-traves-de-docker-con-la-imagen-de-bitnami" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Sitio web de jguiman958." class="md-header__button md-logo" aria-label="Sitio web de jguiman958." data-md-component="logo">
+      
+  <img src="../assets/logoIAW.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sitio web de jguiman958.
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Prestashop con bitnami
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Sitio web de jguiman958." class="md-nav__button md-logo" aria-label="Sitio web de jguiman958." data-md-component="logo">
+      
+  <img src="../assets/logoIAW.jpg" alt="logo">
+
+    </a>
+    Sitio web de jguiman958.
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../men%C3%BAprincipal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Principal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instalacionterraform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Terraform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Prestashop con bitnami
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Prestashop con bitnami
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-los-respectivos-contenedores-para-la-instalacion-de-wordpress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de los respectivos contenedores para la instalación de wordpress.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación de los respectivos contenedores para la instalación de wordpress.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué es docker?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabajamos-con-un-fichero-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabajamos con un fichero docker-compose.yml
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajamos con un fichero docker-compose.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comenzamos-con-la-parte-de-prestashop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comenzamos con la parte de prestashop.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comenzamos-la-parte-de-la-instalacion-de-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comenzamos la parte de la instalación de mysql.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comenzamos-la-parte-de-instalacion-de-phpmyadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comenzamos la parte de instalación de phpmyadmin.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comenzamos-la-parte-de-instalacion-de-https-en-wordpress-para-securizarlo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comenzamos la parte de instalación de https en wordpress, para securizarlo.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-de-los-volumenes-y-redes-creadas-durante-la-creacion-del-fichero-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte de los volumenes y redes creadas durante la creación del fichero docker-compose.yml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobacion-de-que-funciona-el-fichero" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobación de que funciona el fichero.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobacion-de-que-muestra-el-contenido-via-cliente-web-de-forma-segura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobación de que muestra el contenido via cliente web de forma segura.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comprobación de que muestra el contenido via cliente web de forma segura.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prueba-de-que-funciona-con-un-certificado-autofirmado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prueba de que funciona con un certificado autofirmado.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Acerca de
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-los-respectivos-contenedores-para-la-instalacion-de-wordpress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de los respectivos contenedores para la instalación de wordpress.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación de los respectivos contenedores para la instalación de wordpress.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué es docker?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabajamos-con-un-fichero-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabajamos con un fichero docker-compose.yml
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajamos con un fichero docker-compose.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comenzamos-con-la-parte-de-prestashop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comenzamos con la parte de prestashop.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comenzamos-la-parte-de-la-instalacion-de-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comenzamos la parte de la instalación de mysql.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comenzamos-la-parte-de-instalacion-de-phpmyadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comenzamos la parte de instalación de phpmyadmin.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comenzamos-la-parte-de-instalacion-de-https-en-wordpress-para-securizarlo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comenzamos la parte de instalación de https en wordpress, para securizarlo.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-de-los-volumenes-y-redes-creadas-durante-la-creacion-del-fichero-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte de los volumenes y redes creadas durante la creación del fichero docker-compose.yml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobacion-de-que-funciona-el-fichero" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobación de que funciona el fichero.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobacion-de-que-muestra-el-contenido-via-cliente-web-de-forma-segura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobación de que muestra el contenido via cliente web de forma segura.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comprobación de que muestra el contenido via cliente web de forma segura.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prueba-de-que-funciona-con-un-certificado-autofirmado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prueba de que funciona con un certificado autofirmado.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="instalacion-de-prestashop-a-traves-de-docker-con-la-imagen-de-bitnami">Instalación de Prestashop a traves de docker con la imagen de bitnami.</h1>
+<h2 id="creacion-de-los-respectivos-contenedores-para-la-instalacion-de-wordpress">Creación de los respectivos contenedores para la instalación de wordpress.</h2>
+<h3 id="que-es-docker">¿Qué es docker?</h3>
+<p>Docker es una plataforma de código abierto diseñada para facilitar la creación, implementación y ejecución de aplicaciones en contenedores. Un contenedor se puede definir como un entorno ligero, aislado y portable, que contiene todo lo necesario (código fuente, dependencias, etc.) para ejecutar una aplicación, un contenedor suele tener un único procesos en ejecución, aunque es posible tener varios. Una de las ventajas que aporta el uso de contenedores es que garantiza que una aplicación se ejecute de la misma manera en cualquier entorno.</p>
+<p>Comandos importantes de docker:</p>
+<pre><code>Trabajamos con un fichero llamado docker-compose.yml
+-Para cargar dicho fichero usamos el comando:
+docker-compose up
+
+- Para ver el listado de las imagenes
+docker images
+
+- Para borrar las imagenes:
+docker rmi -f &lt;id_imagen&gt;
+
+- Para listar los volumenes 
+docker volume ls
+
+- Para borrar las volumenes:
+docker-compose down -v
+
+- Para ver el listado de los contenedores incluso los que se encuentran en segundo plano:
+docker ps -a
+
+- Para borrar los contenedores
+docker rm -f &lt;docker id&gt;
+
+</code></pre>
+<h3 id="trabajamos-con-un-fichero-docker-composeyml">Trabajamos con un fichero docker-compose.yml</h3>
+<p>Por tanto lo vamos a explicar por parte.</p>
+<h4 id="comenzamos-con-la-parte-de-prestashop">Comenzamos con la parte de prestashop.</h4>
+<pre><code>version: '3.3'
+
+services:
+ prestashop:
+    image: bitnami/prestashop:1.7
+    environment: 
+      - PRESTASHOP_FIRST_NAME=${PRESTASHOP_FIRST_NAME}
+      - PRESTASHOP_LAST_NAME=${PRESTASHOP_LAST_NAME}
+      - PRESTASHOP_PASSWORD=${PRESTASHOP_PASSWORD}
+      - PRESTASHOP_HOST=${DNS_DOMAIN_SECURE}
+      - PRESTASHOP_EMAIL=${PRESTASHOP_EMAIL}
+      - PRESTASHOP_COUNTRY=${PRESTASHOP_COUNTRY}
+      - PRESTASHOP_DATABASE_HOST=mysql
+      - PRESTASHOP_DATABASE_NAME=${PRESTASHOP_DATABASE_NAME}
+      - ALLOW_EMPTY_PASSWORD=yes
+      - PRESTASHOP_DATABASE_USER=${PRESTASHOP_DATABASE_USER}
+      - PRESTASHOP_DATABASE_PASSWORD=${PRESTASHOP_DATABASE_PASSWORD}
+      - PRESTASHOP_DATABASE_PREFIX=${PRESTASHOP_DATABASE_PREFIX}
+      - PRESTASHOP_ENABLE_SSL=1
+      - PRESTASHOP_ENABLE_HTTPS=yes
+    volumes: 
+      - prestashop_data:/bitnami/prestashop
+    depends_on:
+      - mysql
+    restart: always
+    networks:
+      - frontend-network
+      - backend-network
+</code></pre>
+<p>Que tenemos aquí...
+La versión, la cual usa la versión de docker-compose: <code>3</code></p>
+<p>Seguidamente comenzamos con el servicio de wordpress que contiene estas ips para la instalación.</p>
+<p>Sacando la imagen de docker hub, usando la instalacion de prestashop de bitnami tenemos que trabajar con las etiquetas que nos ofrece esa ofrece esa imagen de wordpress, es necesario establecer la version en concreto con la que vamos a trabajar <code>1.7</code></p>
+<p>En environment visualizamos las variables que contiene información sobre la instalación automatizada de wordpress.
+Estas variables, para se exactos:</p>
+<pre><code># Dominio.
+DNS_DOMAIN_SECURE=docker-host.local
+
+# Creación de las variables.
+PRESTASHOP_FIRST_NAME=Bitnami
+PRESTASHOP_LAST_NAME=User
+PRESTASHOP_PASSWORD=bitnami1
+PRESTASHOP_EMAIL=prestashop@prestashop.com
+PRESTASHOP_COUNTRY=es
+PRESTASHOP_LANGUAGE=es
+PRESTASHOP_DATABASE_HOST=mysql
+PRESTASHOP_DATABASE_NAME=prestashop
+PRESTASHOP_DATABASE_USER=ps_user
+PRESTASHOP_DATABASE_PASSWORD=ps_passwd
+PRESTASHOP_DATABASE_PREFIX=ps_
+
+
+MYSQL_ROOT_PASSWORD=root
+</code></pre>
+<p>Necesarios para la automatización de la instalación.</p>
+<p>Se emplea tambien un volumen con nombre, para mantener la persistencia de datos, y que no se borren cuando se pare el contenedor.</p>
+<p>Docker-compose, funciona con etiquetas, no hace falta poner ips este fichero ya creará las redes con la etiqueta frontend-network y backend-network, tambien hay que tener en cuenta que depende de que mysql este en funcionamiento.</p>
+<h4 id="comenzamos-la-parte-de-la-instalacion-de-mysql">Comenzamos la parte de la instalación de mysql.</h4>
+<p>Como estamos trabajando con etiquetas, trabajamos siempre con nombres, ports...., image...., environment..., en el apartado environment disponemos de una serie de nombres donde debe incluirse con información el cual docker al ejecutarse, establecerá los parametros necesarios, traido a traves de unas variables, traidas desde nuestro fichero env</p>
+<pre><code>  mysql:
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${PRESTASHOP_DATABASE_NAME}
+      - MYSQL_USER=${PRESTASHOP_DATABASE_USER}
+      - MYSQL_PASSWORD=${PRESTASHOP_DATABASE_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+    networks:
+      - backend-network
+    security_opt:
+      - seccomp:unconfined
+</code></pre>
+<p>Disponemos inclusive de un volumen el cual hace que el contenedor de mysql sea persistente, restart hace que se reinicia en caso de que el contenedor se tumbe, asignandole la red del backend.</p>
+<p>Estableciendo unconfined para que no presenten restricciones en el contenedor.</p>
+<p>Estas son las variables que usa:</p>
+<pre><code>PRESTASHOP_DATABASE_NAME=prestashop
+PRESTASHOP_DATABASE_USER=ps_user
+PRESTASHOP_DATABASE_PASSWORD=ps_passwd
+</code></pre>
+<p>Como podemos ver concuerda con las variables de la base de datos asignada a prestashop.</p>
+<h4 id="comenzamos-la-parte-de-instalacion-de-phpmyadmin">Comenzamos la parte de instalación de phpmyadmin.</h4>
+<pre><code>  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    ports:
+      - 8080:80
+    environment: 
+      - PMA_HOST=mysql
+    restart: always
+    networks:
+      - frontend-network
+      - backend-network
+</code></pre>
+<p>Aquí instala phpmyadmin tomando como host mysql y asignando las dos redes, las necesita para poder acceder a la base de datos desde el frontend, como comprobamos no le asignamos persistencia.</p>
+<h4 id="comenzamos-la-parte-de-instalacion-de-https-en-wordpress-para-securizarlo">Comenzamos la parte de instalación de https en wordpress, para securizarlo.</h4>
+<pre><code>  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    environment:
+      DOMAINS: '${DNS_DOMAIN_SECURE} -&gt; http://prestashop:8080'
+      STAGE: 'production' # Don't use production until staging works
+      # FORCE_RENEW: 'true'
+    networks:
+      - frontend-network
+</code></pre>
+<p>En este caso, necesita los 80 y 443, http y https, http para que se pueda comunica con las otras maquinas, y https para que muestra el contenido de forma segura, encriptando las peticiones, es necesario usar la variable:</p>
+<pre><code>DNS_DOMAIN_SECURE=docker-dominio.ddns.net
+</code></pre>
+<p>Para acceder desde local, STAGE establecerlo en staging.</p>
+<pre><code>  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    environment:
+      DOMAINS: '${DNS_DOMAIN_SECURE} -&gt; http://prestashop:8080'
+      STAGE: 'production' # Don't use production until staging works
+      # FORCE_RENEW: 'true'
+    networks:
+      - frontend-network
+</code></pre>
+<p>Como podemos ver en bitnami tanto para prestashop como wordpress los puertos son 8080 es necesario tenerlos abiertos en la máquina.</p>
+<h4 id="parte-de-los-volumenes-y-redes-creadas-durante-la-creacion-del-fichero-docker-composeyml">Parte de los volumenes y redes creadas durante la creación del fichero docker-compose.yml</h4>
+<pre><code>volumes: 
+  mysql_data:
+  prestashop_data:
+  ssl_certs_data:
+
+networks:
+  frontend-network:
+  backend-network:
+</code></pre>
+<p>Es necesario crear, estas redes y volumenes al final para que se asigne de forma correcta a los docker.</p>
+<h2 id="comprobacion-de-que-funciona-el-fichero">Comprobación de que funciona el fichero.</h2>
+<p>Comprobacion de que al lanzar el comando <code>docker-compose up</code> funcione.</p>
+<p><img alt="alt text" src="../capturas/Captura1.PNG" /></p>
+<p>Podemos comprobar que se ha ejecutado la instruccion correctamente y ya está prestashop instalado.</p>
+<h2 id="comprobacion-de-que-muestra-el-contenido-via-cliente-web-de-forma-segura">Comprobación de que muestra el contenido via cliente web de forma segura.</h2>
+<p><img alt="alt text" src="../capturas/Captura2.PNG" /></p>
+<p>Podemos comprobar que muestra el contenido de forma segura, encriptando las peticiones y respuestas entre cliente y servidor. El certificado es valido por una autoridad certificadora.</p>
+<h3 id="prueba-de-que-funciona-con-un-certificado-autofirmado">Prueba de que funciona con un certificado autofirmado.</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../instalacionterraform/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Terraform">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Terraform
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../about/" class="md-footer__link md-footer__link--next" aria-label="Next: Acerca de">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Acerca de
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
