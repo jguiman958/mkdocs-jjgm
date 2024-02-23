@@ -1,6 +1,7 @@
 site_name: Sitio web de jguiman958.
 
 nav:
+    - Indice: index.md
     - Principal: menúprincipal.md
     - Terraform: instalacionterraform.md
     - Prestashop con bitnami: bitnamiprestashop.md
@@ -9,6 +10,8 @@ theme:
     name: material
     logo: assets/logoIAW.jpg
     color: blue grey
+    palette: 
+      primary: amber
     font:
       text: Anta
     features:
